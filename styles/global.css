@@ -25,6 +25,15 @@
   --text-xl: 4rem;
 }
 
+/* Remove scroll vertical e horizontal */
+html,
+body {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 html,
 button {
   font: 500 1rem/1.5 var(--ff-base);
