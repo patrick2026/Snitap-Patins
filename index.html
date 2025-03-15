@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snitap Patins</title>
 
-    <link rel="stylesheet" href="./styles/index.css" />
-
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,500;1,500&family=Syne:wght@400..800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/index.css" />
   </head>
   <body>
     <header>
@@ -21,41 +22,48 @@
         <img src="./assets/logo.svg" alt="logo" />
       </a>
       <a href="#">
-        <img src="./assets/icons/shopping-bag-01.svg" alt="" />
+        <img src="./assets/icons/shopping-bag-01.svg" alt="Carrinho" />
         <span>1</span>
       </a>
     </header>
 
     <section class="hero">
+      <!-- Título e botões -->
       <div>
-        <h1>Snitap, sua vida mais
+        <h1>
+          Snitap, sua vida mais
           <div>
+            <!-- DIV PARA ANIMAÇÃO -->
             <span>radical</span>
             <span>divertida</span>
             <span>saudável</span>
             <span>radical</span>
           </div>
-        </div>
+          <!-- Fechamento correto da div -->
         </h1>
 
-
-
-      <!--------- buttons     -----------------> 
+        <!-- Botões (agora são irmãos do h1) -->
         <div class="buttons">
           <a href="#" class="button buy shadow">
-            <img src="assets/icons/shopping-bag-01.svg" alt="">
+            <img src="assets/icons/shopping-bag-01.svg" alt="Comprar" />
             COMPRAR AGORA
-
-            <a href="#" class="button play">
-                <span class="shadow">
-                  <img src="assets/icons/play.svg" alt="">
-                </span>
-                VEJA EM AÇÃO
-            </a>
-
+          </a>
+          <a href="#" class="button play">
+            <span class="shadow">
+              <img src="assets/icons/play.svg" alt="Play" />
+            </span>
+            VEJA EM AÇÃO
           </a>
         </div>
-      
+      </div>
+
+      <!-- Imagens de patins  -->
+      <div class="hero-images">
+        <img src="assets/hero/Ellipse.svg" alt="Efeito visual" />
+        <img src="assets/hero/patins-image.png" alt="Patins Snitap" />
+        <img src="assets/hero/stars-1.svg" alt="Estrelas" />
+        <img src="assets/hero/stars-2.svg" alt="Estrelas" />
+      </div>
     </section>
   </body>
 </html>

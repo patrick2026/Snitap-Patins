@@ -1,8 +1,14 @@
+/* ===== HERO SECTION ===== */
 section.hero {
   max-width: 80rem;
   width: 100%;
   padding: 2.5rem 2rem;
   margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden; /*controla como o conteúdo excedente de um elemento é tratado quando ultrapassa os limites do container.*/
 
   & h1 {
     max-width: 40rem;
@@ -32,46 +38,212 @@ section.hero {
 
   & h1 span {
     display: block;
-    animation: slideUp 6s infinite ease;
+    animation: slideUp 7s infinite ease;
   }
-}
+  /**************BUTTONS****************/
 
-/**************BUTTONS***********************/
-
-& .buttons {
-  display: flex;
-  gap: 2rem;
-  margin-top: 3rem;
-
-  & .button {
+  & .buttons {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    gap: 2rem;
+    margin-top: 3rem;
 
-    border-radius: 5rem;
-
-    transform: scale 350ms;
-
-    &.buy {
-      padding: 1.5rem 3rem;
-      background-color: var(--snitap-sun);
-    }
-
-    &.play span {
-      padding: 1.5rem;
-      border-radius: 50%;
-      background-color: white;
+    & .button {
       display: flex;
-    }
+      align-items: center;
+      gap: 0.75rem;
+      border-radius: 5rem;
+      transform: scale 350ms;
 
-    &:hover {
-      scale: 1.1;
+      &.buy {
+        padding: 1.5rem 3rem;
+        background-color: var(--snitap-sun);
+      }
+
+      &.play span {
+        padding: 1.5rem;
+        border-radius: 50%;
+        background-color: white;
+        display: flex;
+      }
+
+      &:hover {
+        scale: 1.1;
+      }
     }
 
     & .shadow {
       box-shadow: 0 2px 5px rgb(0 0 0 /0.1), 0 9px 9px rgb(0 0 0 /0.09),
         0 20px 12px rgb(0 0 0 /0.01), 0 36px 15px rgb(0 0 0 /0.05);
     }
+  }
+  /************PATINS***********************/
+  .hero-images {
+    position: relative; /* Permite posicionamento absoluto nos filhos */
+    width: min(100%, 30.5rem); /* Largura máxima de 30.5rem */
+    aspect-ratio: 1/1; /* Mantém proporção quadrada (altura = largura) */
+    margin: 0 auto; /* Centraliza horizontalmente */
+
+    /* Todas as imagens dentro do container */
+    img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      object-fit: contain; /* Garante que as imagens não distorçam */
+    }
+
+    /* Elipse de fundo */
+    img[src*="Ellipse"] {
+      width: 94%; /* 6% menor que o container */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centraliza perfeito */
+      z-index: 1; /* Camada de fundo */
+    }
+
+    /* Imagem principal do patins */
+    img[src*="patins-image"] {
+      z-index: 3; /* Camada superior */
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15)); /* Sombra suave */
+    }
+
+    /* Estrelas decorativas */
+    img[src*="stars-1"] {
+      z-index: 2; /* Entre a elipse e o patins */
+      top: 30%;
+      z-index: 2; /* Ajustado para ficar ATRÁS do patins (z-index:3) */
+      max-width: 5.5rem;
+    }
+
+    img[src*="stars-2"] {
+      z-index: 2;
+      max-width: 2.5rem;
+      bottom: 35%;
+      right: 0;
+    }
+  }
+}
+
+/* ANIMAÇÃO PRINCIPAL (TODOS OS ELEMENTOS) */
+@keyframes slideInOut {
+  0% {
+    transform: translateX(200%); /* Início: todos fora da tela à direita */
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(0); /* Posição central */
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0); /* Pausa no centro */
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-200%); /* Saem para a esquerda */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(200%); /* Reset para reiniciar a animação */
+    opacity: 0;
+  }
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(200%); /* Início: todos à direita */
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(0); /* Centro */
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0); /* Pausa */
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-200%); /* Saída à esquerda */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(200%); /* Reset */
+    opacity: 0;
+  }
+}
+
+/* ANIMAÇÃO ESPECÍFICA PARA A ELLIPSE (CÍRCULO) */
+@keyframes ellipseAnimation {
+  0% {
+    transform: translate(-50%, -50%) translateX(200%); /* Centraliza + posição inicial */
+    opacity: 0;
+  }
+  25% {
+    transform: translate(-50%, -50%) translateX(0); /* Centralizado */
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(0); /* Pausa */
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-50%, -50%) translateX(-200%); /* Saída */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(200%); /* Reset */
+    opacity: 0;
+  }
+}
+
+/* APLICAÇÃO NOS ELEMENTOS */
+.hero-images {
+  position: relative;
+  overflow: hidden; /* Garante que elementos fora não sejam visíveis */
+
+  img[src*="Ellipse"] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 94%;
+    animation: ellipseAnimation 6s infinite linear; /* Animação customizada */
+    z-index: 1;
+  }
+
+  img[src*="patins-image"] {
+    position: relative;
+    z-index: 2;
+    animation: slideInOut 6s infinite linear; /* Animação padrão */
+  }
+
+  img[src*="stars"] {
+    animation: slideInOut 6s infinite linear;
+    z-index: 3;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(200%); /* Começa fora da tela à direita */
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0); /* Posição final */
+    opacity: 1;
+  }
+}
+
+/* ANIMAÇÃO FLUTUAR + ENTRADA (PARA ESTRELAS) */
+@keyframes floatAndSlide {
+  0% {
+    transform: translateX(200%) translateY(0); /* Começa à direita */
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0) translateY(-20px); /* Flutua para cima */
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) translateY(0); /* Volta à posição */
+    opacity: 1;
   }
 }
 
@@ -101,8 +273,6 @@ section.hero {
   29% {
     transform: translateY(calc(-5rem + 5px));
   }
-  /*divertida estatica*/
-  /**/
 
   33%,
   55% {
@@ -125,7 +295,6 @@ section.hero {
     transform: translateY(calc(-10rem + 5px));
   }
 
-  /*saudável estatico*/
   66%,
   88% {
     transform: translateY(-10rem);
