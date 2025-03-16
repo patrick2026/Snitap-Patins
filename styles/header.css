@@ -38,7 +38,6 @@ header.top {
     height: 1.25rem;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 50%;

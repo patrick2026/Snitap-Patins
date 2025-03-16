@@ -9,7 +9,6 @@
 /* 2. Container principal */
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 /* 3. Forçar alinhamento */
@@ -17,8 +16,6 @@ header,
 section,
 footer {
   width: 100% !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
 }
 
 /* 4. Verificar elementos específicos */
