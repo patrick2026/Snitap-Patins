@@ -320,3 +320,111 @@ section.hero {
     transform: translateY(-15rem);
   }
 }
+
+/* ===== HERO SECTION ===== */
+section.hero {
+  /* ... (mantenha seus estilos originais) */
+
+  /* Responsividade para Mobile (390px) */
+  @media (max-width: 390px) {
+    flex-direction: column; /* Um abaixo do outro */
+    padding: 1.5rem 1rem;
+    gap: 2rem !important; /* Espaço entre elementos */
+    align-items: center;
+    justify-content: center;
+
+    /* Ajustes no texto */
+    h1 {
+      font-size: 1.3rem !important;
+      max-width: 90% !important;
+      text-align: center; /* Centraliza o texto */
+      order: 2; /* Ordem dos elementos */
+      & h1 span {
+        font-size: 1.1rem !important;
+      }
+      div {
+        height: 1.5rem !important; /* Altura reduzida */
+        width: 100% !important; /* Ocupa toda a largura */
+        margin: 0 auto;
+      }
+
+      span {
+        font-size: 1.6rem; /* Tamanho reduzido */
+        animation: slideUpMobile 7s infinite ease; /* Animação ajustada */
+      }
+    }
+
+    /* Ajustes nos botões */
+    .buttons {
+      flex-direction: column; /* Botões em coluna */
+      align-items: center;
+      gap: 1rem !important;
+      margin-top: 1.5rem !important;
+      order: 3; /* Ordem dos elementos */
+
+      .button {
+        width: 80% !important; /* Largura total */
+        justify-content: center; /* Centraliza conteúdo */
+
+        &.buy {
+          padding: 1rem 1.5rem !important; /* Padding reduzido */
+        }
+
+        &.play span {
+          padding: 1rem !important;
+        }
+      }
+    }
+
+    /* Ajustes nas imagens */
+    .hero-images {
+      width: 100% !important;
+      max-width: 250px !important; /* Largura máxima reduzida */
+      order: 1; /* Ordem dos elementos */
+      aspect-ratio: 1/1.2; /* Proporção mais estreita */
+
+      img[src*="patins-image"] {
+        position: relative !important;
+        width: 85% !important;
+      }
+
+      img[src*="stars-1"] {
+        top: 15% !important;
+        max-width: 4rem !important;
+      }
+
+      img[src*="stars-2"] {
+        bottom: 20% !important;
+        max-width: 2rem !important;
+      }
+    }
+  }
+}
+
+/* Animação ajustada para mobile */
+@keyframes slideUpMobile {
+  0%,
+  22% {
+    transform: translateY(0);
+  }
+  23% {
+    transform: translateY(-3.5rem);
+  }
+  33%,
+  55% {
+    transform: translateY(-3.5rem);
+  }
+  56% {
+    transform: translateY(-7rem);
+  }
+  66%,
+  88% {
+    transform: translateY(-7rem);
+  }
+  89% {
+    transform: translateY(-10.5rem);
+  }
+  100% {
+    transform: translateY(-10.5rem);
+  }
+}

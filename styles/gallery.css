@@ -106,3 +106,44 @@ section.gallery {
     transform: translateY(100%);
   }
 }
+
+section.gallery {
+  /* ... (mantenha os estilos originais) */
+
+  /* Responsividade para Mobile (390px) */
+  @media (max-width: 390px) {
+    padding: 1.5rem 1rem;
+
+    & .content {
+      grid-template-areas: unset; /* Remove o grid original */
+      grid-template-columns: 1fr; /* Cria uma única coluna */
+      gap: 1.5rem; /* Espaçamento reduzido */
+      margin-top: 1.5rem;
+
+      & figure {
+        grid-area: auto !important; /* Reseta todas as áreas do grid */
+        width: 100%;
+
+        & > img {
+          height: 18rem; /* Altura reduzida para mobile */
+        }
+
+        /* Ajusta animação para mobile */
+        animation-range: 50px 200px;
+
+        &[data-delay] {
+          animation-range: 80px 250px;
+        }
+      }
+    }
+
+    & figcaption {
+      padding: 1rem; /* Reduz padding */
+      font-size: 0.875rem; /* Tamanho de fonte menor */
+
+      & > img {
+        width: 1.5rem; /* Ícones menores */
+      }
+    }
+  }
+}
