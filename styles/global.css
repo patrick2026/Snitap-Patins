@@ -3,7 +3,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
 /* 2. Container principal */
@@ -73,74 +73,4 @@ h2 {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-/* ===== ESTILOS BASE ===== */
-html,
-body {
-  max-width: 100%; /* Permite adaptação total em mobile */
-  margin: 0 auto;
-  box-sizing: border-box;
-
-  /* Ajustes para mobile */
-  @media (max-width: 390px) {
-    padding: 0 1rem; /* Adiciona espaço nas bordas */
-    overflow-x: hidden; /* Garante que nada ultrapasse horizontalmente */
-  }
-}
-
-html,
-button {
-  font: 500 1rem/1.5 var(--ff-base);
-  font-family: "Montserrat", sans-serif; /* Adicionei vírgula faltante */
-  text-transform: uppercase;
-
-  /* Mobile First */
-  @media (max-width: 390px) {
-    font-size: 0.9rem; /* Redução de tamanho */
-    line-height: 1.4; /* Melhora legibilidade */
-    text-transform: none; /* Remove uppercase para melhor leitura */
-  }
-}
-
-h1,
-h2 {
-  font-family: "Syne", sans-serif;
-
-  /* Quebra de texto responsiva */
-  @media (max-width: 390px) {
-    word-break: keep-all;
-    hyphens: auto;
-  }
-}
-
-h1 {
-  font-size: var(--text-xl);
-  line-height: 1.25;
-
-  @media (max-width: 390px) {
-    font-size: calc(var(--text-xl) * 0.7); /* Redução proporcional */
-    line-height: 1.3;
-  }
-}
-
-h2 {
-  font-size: var(--text-lg);
-  line-height: 1.2;
-
-  @media (max-width: 390px) {
-    font-size: calc(var(--text-lg) * 0.8);
-    margin-bottom: 0.5rem;
-  }
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-
-  /* Touch targets maiores */
-  @media (max-width: 390px) {
-    padding: 0.5rem 0; /* Área de toque aumentada */
-    display: inline-block; /* Permite padding vertical */
-  }
 }
