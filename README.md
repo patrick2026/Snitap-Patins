@@ -39,7 +39,7 @@ CSS3: Animações, gradientes e design responsivo.
 Clone o repositório:
 
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/patrick2026/Snitap-Patins.git
 Abra o projeto: https://patrick2026.github.io/Snitap-Patins/
 <br>
 <br>
